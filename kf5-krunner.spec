@@ -2,32 +2,32 @@
 # Not packaged:
 # /usr/include/KF5
 # /usr/share/kservicetypes5
-
-%define         _state          stable
-%define		orgname		krunner
+%define		kdeframever	5.4
+%define		qtver		5.3.2
+%define		kfname		krunner
 
 Summary:	Framework for Plasma runners
-Name:		kf5-%{orgname}
-Version:	5.0.0
+Name:		kf5-%{kfname}
+Version:	5.4.0
 Release:	0.1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/frameworks/%{version}/portingAids/%{orgname}-%{version}.tar.xz
-# Source0-md5:	600949cb6d64ee03bf94911276554a6e
+Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/portingAids/%{kfname}-%{version}.tar.xz
+# Source0-md5:	3f40728d68971e8c4436e5b4bd418210
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= 5.2.0
-BuildRequires:	Qt5DBus-devel >= 5.2.0
-BuildRequires:	Qt5Gui-devel
-BuildRequires:	Qt5Network-devel >= 5.3.1
-BuildRequires:	Qt5Qml-devel >= 5.3.1
-BuildRequires:	Qt5Quick-devel
-BuildRequires:	Qt5Test-devel
-BuildRequires:	Qt5Widgets-devel
-BuildRequires:	Qt5Xml-devel >= 5.2.0
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5DBus-devel >= %{qtver}
+BuildRequires:	Qt5Gui-devel >= %{qtver}
+BuildRequires:	Qt5Network-devel >= %{qtver}
+BuildRequires:	Qt5Qml-devel >= %{qtver}
+BuildRequires:	Qt5Quick-devel >= %{qtver}
+BuildRequires:	Qt5Test-devel >= %{qtver}
+BuildRequires:	Qt5Widgets-devel >= %{qtver}
+BuildRequires:	Qt5Xml-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	gettext-devel
 BuildRequires:	kf5-attica-devel >= %{version}
-BuildRequires:	kf5-extra-cmake-modules >= 0.0.9
+BuildRequires:	kf5-extra-cmake-modules >= 1.4.0
 BuildRequires:	kf5-kauth-devel >= %{version}
 BuildRequires:	kf5-kbookmarks-devel >= %{version}
 BuildRequires:	kf5-kcodecs-devel >= %{version}
@@ -73,36 +73,25 @@ This functionality is provided via plugins loaded at runtime called
 Plasma library. The KRunner framework is used to write these plugins.
 
 %package devel
-Summary:	Header files for %{orgname} development
-Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{orgname}
+Summary:	Header files for %{kfname} development
+Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
-Header files for %{orgname} development.
+Header files for %{kfname} development.
 
 %description devel -l pl.UTF-8
-Pliki nagłówkowe dla programistów używających %{orgname}.
+Pliki nagłówkowe dla programistów używających %{kfname}.
 
 %prep
-%setup -q -n %{orgname}-%{version}
+%setup -q -n %{kfname}-%{version}
 
 %build
 install -d build
 cd build
 %cmake \
-	-DBIN_INSTALL_DIR=%{_bindir} \
-	-DKCFG_INSTALL_DIR=%{_datadir}/config.kcfg \
-	-DPLUGIN_INSTALL_DIR=%{qt5dir}/plugins \
-	-DQT_PLUGIN_INSTALL_DIR=%{qt5dir}/plugins \
-	-DQML_INSTALL_DIR=%{qt5dir}/qml \
-	-DIMPORTS_INSTALL_DIR=%{qt5dirs}/imports \
-	-DSYSCONF_INSTALL_DIR=%{_sysconfdir} \
-	-DLIBEXEC_INSTALL_DIR=%{_libexecdir} \
-	-DKF5_LIBEXEC_INSTALL_DIR=%{_libexecdir} \
-	-DKF5_INCLUDE_INSTALL_DIR=%{_includedir} \
-	-DECM_MKSPECS_INSTALL_DIR=%{qt5dir}/mkspecs/modules \
-	-D_IMPORT_PREFIX=%{_prefix} \
+	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	../
 %{__make}
 
@@ -122,7 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.md
 %attr(755,root,root) %ghost %{_libdir}/libKF5Runner.so.5
-%attr(755,root,root) %{_libdir}/libKF5Runner.so.5.0.0
+%attr(755,root,root) %{_libdir}/libKF5Runner.so.5.4.0
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/runnermodel/librunnermodelplugin.so
 %{_libdir}/qt5/qml/org/kde/runnermodel/qmldir
 %{_datadir}/kservicetypes5/plasma-runner.desktop
