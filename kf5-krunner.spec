@@ -1,15 +1,15 @@
-%define		kdeframever	5.13
+%define		kdeframever	5.19
 %define		qtver		5.3.2
 %define		kfname		krunner
 
 Summary:	Framework for Plasma runners
 Name:		kf5-%{kfname}
-Version:	5.13.0
+Version:	5.19.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/portingAids/%{kfname}-%{version}.tar.xz
-# Source0-md5:	253f3fa45128074b0303b7fc72aebea4
+# Source0-md5:	c43cef2cc5b9322dd34c849ba3474c89
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
