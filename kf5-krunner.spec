@@ -1,15 +1,15 @@
-%define		kdeframever	5.24
+%define		kdeframever	5.39
 %define		qtver		5.3.2
 %define		kfname		krunner
 
 Summary:	Framework for Plasma runners
 Name:		kf5-%{kfname}
-Version:	5.24.0
+Version:	5.39.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	c397c4a9b647e6bb35d7f022c5556693
+# Source0-md5:	cc3bba7eb22f66fc6aff7e6a4525cafa
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -39,15 +39,15 @@ BuildRequires:	kf5-kiconthemes-devel >= %{version}
 BuildRequires:	kf5-kio-devel >= %{version}
 BuildRequires:	kf5-kitemviews-devel >= %{version}
 BuildRequires:	kf5-kjobwidgets-devel >= %{version}
-BuildRequires:	kf5-plasma-framework-devel >= %{version}
 BuildRequires:	kf5-kservice-devel >= %{version}
 BuildRequires:	kf5-ktextwidgets-devel >= %{version}
-BuildRequires:	kf5-threadweaver-devel >= %{version}
 BuildRequires:	kf5-kwidgetsaddons-devel >= %{version}
 BuildRequires:	kf5-kwindowsystem-devel >= %{version}
 BuildRequires:	kf5-kxmlgui-devel >= %{version}
+BuildRequires:	kf5-plasma-framework-devel >= %{version}
 BuildRequires:	kf5-solid-devel >= %{version}
 BuildRequires:	kf5-sonnet-devel >= %{version}
+BuildRequires:	kf5-threadweaver-devel >= %{version}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -112,6 +112,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/runnermodel/librunnermodelplugin.so
 %{_libdir}/qt5/qml/org/kde/runnermodel/qmldir
 %{_datadir}/kservicetypes5/plasma-runner.desktop
+%{_datadir}/dbus-1/interfaces/kf5_org.kde.krunner1.xml
+%{_datadir}/kdevappwizard/templates/runner.tar.bz2
+
 
 %files devel
 %defattr(644,root,root,755)
