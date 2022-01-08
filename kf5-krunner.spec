@@ -1,15 +1,15 @@
-%define		kdeframever	5.89
+%define		kdeframever	5.90
 %define		qtver		5.9.0
 %define		kfname		krunner
 
 Summary:	Framework for Plasma runners
 Name:		kf5-%{kfname}
-Version:	5.89.0
+Version:	5.90.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	0d546ccb0328cd7ed93b625b907a7a3a
+# Source0-md5:	d2bf2caacf70669d49bd12a507dd507e
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -113,8 +113,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/qml/org/kde/runnermodel/qmldir
 %{_datadir}/kservicetypes5/plasma-runner.desktop
 %{_datadir}/dbus-1/interfaces/kf5_org.kde.krunner1.xml
-%{_datadir}/kdevappwizard/templates/runner.tar.bz2
 %{_datadir}/qlogging-categories5/krunner.renamecategories
+%{_datadir}/kdevfiletemplates/templates/runner.tar.bz2
+%{_datadir}/kdevfiletemplates/templates/runnerpython.tar.bz2
 
 %files devel
 %defattr(644,root,root,755)
@@ -123,4 +124,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/cmake/KF5Runner
 %{_libdir}/libKF5Runner.so
 %{qt5dir}/mkspecs/modules/qt_KRunner.pri
-%{_datadir}/kdevappwizard/templates/runnerpython.tar.bz2
