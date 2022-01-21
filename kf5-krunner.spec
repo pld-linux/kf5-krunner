@@ -5,7 +5,7 @@
 Summary:	Framework for Plasma runners
 Name:		kf5-%{kfname}
 Version:	5.90.0
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -114,6 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservicetypes5/plasma-runner.desktop
 %{_datadir}/dbus-1/interfaces/kf5_org.kde.krunner1.xml
 %{_datadir}/qlogging-categories5/krunner.renamecategories
+%dir %{_datadir}/kdevfiletemplates
 %dir %{_datadir}/kdevfiletemplates/templates
 %{_datadir}/kdevfiletemplates/templates/runner.tar.bz2
 %{_datadir}/kdevfiletemplates/templates/runnerpython.tar.bz2
