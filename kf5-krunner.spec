@@ -1,28 +1,28 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.114
+%define		kdeframever	5.249.0
 %define		qtver		5.15.2
 %define		kfname		krunner
 
 Summary:	Framework for Plasma runners
 Name:		kf5-%{kfname}
-Version:	5.114.0
-Release:	1
+Version:	5.249.0
+Release:	0.1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	2074da30eb97ce69f7d376119983b4cc
+Source0:	https://download.kde.org/unstable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
+# Source0-md5:	fdd35db71635f2544e4258a398b195e9
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	Qt5DBus-devel >= %{qtver}
-BuildRequires:	Qt5Gui-devel >= %{qtver}
-BuildRequires:	Qt5Network-devel >= %{qtver}
-BuildRequires:	Qt5Qml-devel >= %{qtver}
-BuildRequires:	Qt5Quick-devel >= %{qtver}
-BuildRequires:	Qt5Test-devel >= %{qtver}
-BuildRequires:	Qt5Widgets-devel >= %{qtver}
-BuildRequires:	Qt5Xml-devel >= %{qtver}
+BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6DBus-devel >= %{qtver}
+BuildRequires:	Qt6Gui-devel >= %{qtver}
+BuildRequires:	Qt6Network-devel >= %{qtver}
+BuildRequires:	Qt6Qml-devel >= %{qtver}
+BuildRequires:	Qt6Quick-devel >= %{qtver}
+BuildRequires:	Qt6Test-devel >= %{qtver}
+BuildRequires:	Qt6Widgets-devel >= %{qtver}
+BuildRequires:	Qt6Xml-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
 BuildRequires:	gettext-devel
 BuildRequires:	kf5-attica-devel >= %{version}
@@ -47,7 +47,6 @@ BuildRequires:	kf5-ktextwidgets-devel >= %{version}
 BuildRequires:	kf5-kwidgetsaddons-devel >= %{version}
 BuildRequires:	kf5-kwindowsystem-devel >= %{version}
 BuildRequires:	kf5-kxmlgui-devel >= %{version}
-BuildRequires:	kf5-plasma-framework-devel >= %{version}
 BuildRequires:	kf5-solid-devel >= %{version}
 BuildRequires:	kf5-sonnet-devel >= %{version}
 BuildRequires:	kf5-threadweaver-devel >= %{version}
@@ -58,7 +57,7 @@ BuildRequires:	xz
 Requires:	kf5-dirs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		qt5dir		%{_libdir}/qt5
+%define		qt6dir		%{_libdir}/qt6
 
 %description
 The Plasma workspace provides an application called KRunner which,
@@ -114,20 +113,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
-%{_datadir}/qlogging-categories5/krunner.categories
-%ghost %{_libdir}/libKF5Runner.so.5
-%attr(755,root,root) %{_libdir}/libKF5Runner.so.*.*
-%attr(755,root,root) %{_libdir}/qt5/qml/org/kde/runnermodel/librunnermodelplugin.so
-%{_libdir}/qt5/qml/org/kde/runnermodel/qmldir
-%{_datadir}/kservicetypes5/plasma-runner.desktop
-%{_datadir}/dbus-1/interfaces/kf5_org.kde.krunner1.xml
-%{_datadir}/qlogging-categories5/krunner.renamecategories
-%{_datadir}/kdevappwizard/templates/runner.tar.bz2
-%{_datadir}/kdevappwizard/templates/runnerpython.tar.bz2
+%{_datadir}/qlogging-categories6/krunner.categories
+%ghost %{_libdir}/libKF6Runner.so.6
+%attr(755,root,root) %{_libdir}/libKF6Runner.so.*.*
+%{_datadir}/dbus-1/interfaces/kf6_org.kde.krunner1.xml
+%{_datadir}/kdevappwizard/templates/runner6.tar.bz2
+%{_datadir}/kdevappwizard/templates/runner6python.tar.bz2
+%{_datadir}/qlogging-categories6/krunner.renamecategories
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KF5/KRunner
-%{_libdir}/cmake/KF5Runner
-%{_libdir}/libKF5Runner.so
-%{qt5dir}/mkspecs/modules/qt_KRunner.pri
+%{_includedir}/KF6/KRunner
+%{_libdir}/cmake/KF6Runner
+%{_libdir}/libKF6Runner.so
