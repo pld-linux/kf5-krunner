@@ -78,6 +78,11 @@ Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	Qt5Core-devel >= %{qtver}
+Requires:	Qt5Gui-devel >= %{qtver}
+Requires:	kf5-kcoreaddons-devel >= %{version}
+Requires:	kf5-kconfig-devel >= %{version}
+Requires:	kf5-plasma-framework-devel >= %{version}
 
 %description devel
 Header files for %{kfname} development.
