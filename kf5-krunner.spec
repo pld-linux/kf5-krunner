@@ -6,6 +6,7 @@
 %define		kfname		krunner
 
 Summary:	Framework for Plasma runners
+Summary(pl.UTF-8):	Szkielet dla uruchamiaczy Plasmy
 Name:		kf5-%{kfname}
 Version:	5.115.0
 Release:	1
@@ -72,6 +73,20 @@ ALT-F2.
 This functionality is provided via plugins loaded at runtime called
 "Runners". These plugins can be used by any application using the
 Plasma library. The KRunner framework is used to write these plugins.
+
+%description -l pl.UTF-8
+Środowisko Plasma udostępnia aplikację o nazwie KRunner, która, między
+innymi, pozwala na wpisanie tekstu w obszar tekstu, co powoduje różne
+akcje, a informacje, które pasują do tekstu, pojawiają się w miarę
+jego pisania.
+
+Jedną z takich aplikacji jest uniwersalny uruchamiacz, który można
+przywołać poprzez ALT-F2.
+
+Niniejsza funkcjonalność jest zapewniana przez ładowane w trakcie
+działania środowiska wtyczki zwane "Uruchamiaczami". Wtyczki te mogą
+być używane przez dowolną aplikację przy użyciu biblioteki Plasma.
+Szkielet KRunner służy do pisania takich wtyczek.
 
 %package devel
 Summary:	Header files for %{kfname} development
