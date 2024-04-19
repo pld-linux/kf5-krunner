@@ -9,7 +9,7 @@ Summary:	Framework for Plasma runners
 Summary(pl.UTF-8):	Szkielet dla uruchamiaczy Plasmy
 Name:		kf5-%{kfname}
 Version:	5.115.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
