@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.115
+%define		kdeframever	5.116
 %define		qtver		5.15.2
 %define		kfname		krunner
 
 Summary:	Framework for Plasma runners
 Summary(pl.UTF-8):	Szkielet dla uruchamiaczy Plasmy
 Name:		kf5-%{kfname}
-Version:	5.115.0
-Release:	2
+Version:	5.116.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	021a50470de1860b96bc5edb8f3ef11c
+# Source0-md5:	b8f6dbe96d6da138e1a8991c7cebd9b0
 URL:		https://kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
